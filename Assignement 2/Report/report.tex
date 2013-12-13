@@ -82,15 +82,19 @@ We can perform the same analysis for methods or variable.Globally there is no ba
 Before deciding when to refactor, we need first to identify where bad smells occurs inside the framework.Using \textit{Moose}'s metrics set, we start by etablishing criteria to indentify those parts.\\ 
 
 In practice, we'll use the following query in order to retrieve the classes based on our thresholded metrics:\\
-\begin{lstlisting}
-(MooseModel root allModels first) allClasses 
-	select: [:each | (each METRICNAME OPERATOR THRESHOLD)
 
+\begin{lstlisting}
+((self flatCollect:[:each | each classes]) flatCollect:[:each | each methods]) select:[:each | (each ATTRIBUTE OPERATOR THRESHOLD) 
 \end{lstlisting}
-%((self flatCollect:[:each | each classes]) flatCollect:[:each | each methods]) select:[:each | (each numberOfLinesOfCode>50)]
+
+If we want only to look into classes, we can do:\\
+\begin{lstlisting}
+(self flatCollect:[:each | each classes])  select:[:each | (each ATTRIBUTE OPERATOR THRESHOLD)
+\end{lstlisting}
+%(MooseModel root allModels first) allClasses select: [:each | (each METRICNAME OPERATOR THRESHOLD)
 Avec
 \begin{itemize}
-\item METRICNAME - The name of the Metric
+\item ATTRIBUTE - The name of the attribute
 \item OPERATOR - The operator for the comparaison
 \item THRESHOLD - The value of the threshold
  \end{itemize}
