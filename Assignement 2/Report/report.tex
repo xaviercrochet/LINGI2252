@@ -84,14 +84,14 @@ Before deciding when to refactor, we need first to identify where bad smells occ
 In practice, we'll use the following query in order to retrieve the classes based on our thresholded metrics:\\
 
 \begin{lstlisting}
-((self flatCollect:[:each | each classes]) flatCollect:[:each | each methods]) select:[:each | (each ATTRIBUTE OPERATOR THRESHOLD) 
+((self flatCollect:[:each | each classes]) flatCollect:[:each | each methods]) select:[:each | (each ATTRIBUTE OPERATOR THRESHOLD)] 
 \end{lstlisting}
 
 If we want only to look into classes, we can do:\\
 \begin{lstlisting}
-(self flatCollect:[:each | each classes])  select:[:each | (each ATTRIBUTE OPERATOR THRESHOLD)
+(self flatCollect:[:each | each classes])  select:[:each | (each ATTRIBUTE OPERATOR THRESHOLD)]
 \end{lstlisting}
-%(MooseModel root allModels first) allClasses select: [:each | (each METRICNAME OPERATOR THRESHOLD)
+%(MooseModel root allModels first) allClasses select: [:each | (each METRICNAME OPERATOR THRESHOLD)]
 Avec
 \begin{itemize}
 \item ATTRIBUTE - The name of the attribute
@@ -146,7 +146,11 @@ We can refactor the classe by extracting the duplicated blocks as new methods, m
 
 Basicly, the solution is to \textbf{extract} the duplicated block as \textbf{a new method} when  an internal one occurs, and as a \textbf{new class} when it's an external. When a external duplicated block occurs between \textbf{two parent classes}, it's more appropriate to resolve it using \textbf{inheritance}. 
 \end{itemize}	
-\subsection{Cohesion} 
+\subsection{Cohesion}
+Cohesion metrics measure how well the methods of a class are related to each other. A cohesive class performs one function. A non-cohesive class performs two or more unrelated functions. The idea is to refactor the non-cohesive class into several smaller classes.
+
+The attribute to inspect here is \textit{tightClassCohesion}. 
+\subsection{Accessors} 
 \subsection{Long Method}
 \subsection{Long Class}
 \subsection{Long Parameter List}
