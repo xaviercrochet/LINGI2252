@@ -85,7 +85,9 @@ In practice, we'll use the following query in order to retrieve the classes base
 \begin{lstlisting}
 (MooseModel root allModels first) allClasses 
 	select: [:each | (each METRICNAME OPERATOR THRESHOLD)
+
 \end{lstlisting}
+%((self flatCollect:[:each | each classes]) flatCollect:[:each | each methods]) select:[:each | (each numberOfLinesOfCode>50)]
 Avec
 \begin{itemize}
 \item METRICNAME - The name of the Metric
@@ -94,12 +96,14 @@ Avec
  \end{itemize}
 
 \subsection{Code duplication}
-The metrics we have to handle are \textit{NumberOfExternalDuplications} and \textit{NumberOfInternalDuplications}.
-The first one correspond to.\\
-The second one to.
+Having the same code structure in more than one place in the system is quite nasty. The programm will be better if we find a way to reunite them.The attributes we have to handle are \textit{NumberOfExternalDuplications} and \textit{NumberOfInternalDuplications}.\\
+
+\textbf{Threshold} - \textit{SmallDude}, the tool used by moose to detect duplicated code have a threshold of 3 lines. We decide here to set the threshold of the two attributes to 0, and to analyse one at the time the results.
+\subsection{Cohesion} 
 \subsection{Long Method}
 \subsection{Long Class}
 \subsection{Long Parameter List}
+\subsection{Thresolded Metrics Summary}
 \subsection{...}
 \section{Improvements}
 \section{Conclusion}
