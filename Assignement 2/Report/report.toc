@@ -1,0 +1,10 @@
+\select@language {english}
+\contentsline {part}{I\hspace {1em}Introduction}{3}
+\contentsline {part}{II\hspace {1em}Automatic Analysis}{5}
+\contentsline {section}{\numberline {0.1}Overview Pyramid}{6}
+\contentsline {section}{\numberline {0.2}Bad Smells}{6}
+\contentsline {subsection}{\numberline {0.2.1}Duplicated Code}{6}
+\contentsline {section}{\numberline {0.3}Class Blueprints}{6}
+\contentsline {section}{\numberline {0.4}Correlation}{7}
+\contentsline {part}{III\hspace {1em}Conclusion}{8}
+\contentsline {part}{IV\hspace {1em}Annexes}{9}
