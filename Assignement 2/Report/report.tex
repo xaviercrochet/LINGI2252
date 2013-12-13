@@ -10,7 +10,6 @@
 \usepackage{listings}
 \usepackage{times}
 
-
 \pagestyle{fancy}
 \lstset{
 basicstyle=\footnotesize, 
@@ -44,44 +43,35 @@ Sergio \textsc{Castro} \\
 \end{center}
 \end{titlepage}
 
-\abstract{This is a cool abstract}
+
 \tableofcontents
-\newpage
-\part{Introduction}
-In the first report, we try to do a manual analysis of \textit{Glamour}. This first step gives us a global overview of \textit{Glamour} and helps us to understand how \textit{Moose} and his tools works. Because of the size of the system (about 270 classes), we use some tools in order to get some hints on where to begin. It wasn't exactly what was asked in the statement of the first report but now that we have all the tools in our hand, we can start looking more effectively for the needles in the haystack that Glamour is.
+\section{Introduction}
+In the first report, we try to do a manual analysis of \textit{Glamour}. This first step gives us a global overview of \textit{Glamour} and helps us to understand how \textit{Moose} and his tools works. Because of the size of the system (about 270 classes), we use some tools in order to get some hints on where to begin. It wasn't exactly what was asked in the statement of the first report but now that we have all the tools in our hand, we can start looking more effectively for the needles in the haystack that Glamour is.\\
 
- 
+Moreover, we found some code duplication in the source code (but relatively few compared to the size of the framework) and the utilisation  of the \textit{Patern Obeserver} in the GLMPresentation class. We thus conclude that Glmamour was globally well-designed, despite the few code duplication.\\
+
+The report will be divded in two parts:
+\begin{enumerate}
+	\item We start by analyse the code using crieria not identifiable by metrics to see
+		\begin{itemize}
+		\item How well the code is commented.
+		\item How good the naming convetion is.
+		\end{itemize}
+	\item Then, we develop a set of thresolded metrics we'll use later to analyse the code.   
+ \end{enumerate}
 \newpage
-\part{Automatic Analysis}
+\section{Code analysis}
+\chapter{Architecture}
 \section{Overview Pyramid}
-\section{Bad Smells}
-\subsection{Duplicated Code}
-We start looking for duplicated code using moose tool
-\section{Class Blueprints}
-To see the internal structure of the classes, we use moose to compute a blueprint of the one we want to analyse. As we explained in the first report
-\begin{itemize}
-	\item \textcolor{cyan}{Cyan}-coloured links represent methods accessing \textbf{attributes} of the corresponding class.
-	\item \textcolor{blue}{Blue}-coloured links represent methods \textbf{interactions}. 
-\end{itemize}
-\includegraphics[width=\textwidth]{GLM_Presentation_blueprint}
-\section{Correlation}
-\newpage
-\part{Conclusion}
-\newpage
-\part{Annexes}
-\begin{figure}
-\includegraphics[width=\textwidth]{glamour_arch_dupli_1}
-\label{arch_dupl_1}
-\caption{Architecture with duplication links part 1}
+\section{Complexity}
+\section{Comments}
+Commenting code is important to improve \textbf{readability} and  the \textbf{reusability}. It make it easier for developpers to contiue a project or for student to analyse it.\\
 
-\includegraphics[width=\textwidth]{glamour_arch_dupli_3}
-\label{arch_dupl_2}
-\caption{Architecture with duplication links part 2}
+Sadly, \textit{Glamour} is not well commented
+\section{Naming Convention}
+\section{Metrics-based analysis}
 
-\includegraphics[&]{glamour_arch_dupli_2}
-\label{arch_dupl_3}
-\caption{Architecture with duplication links part 3}
-
-\end{figure}
+\section{Conclusion}
+\section{Annexes}
 
 \end{document}

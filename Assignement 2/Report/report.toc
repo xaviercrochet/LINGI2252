@@ -1,10 +1,13 @@
 \select@language {english}
-\contentsline {part}{I\hspace {1em}Introduction}{3}
-\contentsline {part}{II\hspace {1em}Automatic Analysis}{5}
-\contentsline {section}{\numberline {0.1}Overview Pyramid}{6}
-\contentsline {section}{\numberline {0.2}Bad Smells}{6}
-\contentsline {subsection}{\numberline {0.2.1}Duplicated Code}{6}
-\contentsline {section}{\numberline {0.3}Class Blueprints}{6}
-\contentsline {section}{\numberline {0.4}Correlation}{7}
-\contentsline {part}{III\hspace {1em}Conclusion}{8}
-\contentsline {part}{IV\hspace {1em}Annexes}{9}
+\contentsline {part}{I\hspace {1em}Introduction}{2}
+\contentsline {part}{II\hspace {1em}Code Analysis}{4}
+\contentsline {chapter}{\numberline {1}Architecture}{5}
+\contentsline {section}{\numberline {1.1}Overview Pyramid}{5}
+\contentsline {section}{\numberline {1.2}Complexity}{5}
+\contentsline {chapter}{\numberline {2}Comments}{6}
+\contentsline {section}{\numberline {2.1}Introduction}{6}
+\contentsline {chapter}{\numberline {3}Naming Convention}{7}
+\contentsline {part}{III\hspace {1em}Metrics-based analysis}{8}
+\contentsline {chapter}{\numberline {4}Introduction}{9}
+\contentsline {part}{IV\hspace {1em}Conclusion}{10}
+\contentsline {part}{V\hspace {1em}Annexes}{11}
