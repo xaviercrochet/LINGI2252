@@ -9,12 +9,12 @@
 \contentsline {section}{\numberline {5}Metrics-based analysis}{4}
 \contentsline {subsection}{\numberline {5.1}Introduction}{4}
 \contentsline {subsection}{\numberline {5.2}Code duplication}{4}
-\contentsline {subsection}{\numberline {5.3}Cohesion}{5}
-\contentsline {subsection}{\numberline {5.4}Long Method}{5}
-\contentsline {subsection}{\numberline {5.5}Long Class}{5}
-\contentsline {subsection}{\numberline {5.6}Long Parameter List}{5}
-\contentsline {subsection}{\numberline {5.7}Thresolded Metrics Summary}{5}
-\contentsline {subsection}{\numberline {5.8}...}{5}
-\contentsline {section}{\numberline {6}Improvements}{5}
-\contentsline {section}{\numberline {7}Conclusion}{5}
-\contentsline {section}{\numberline {8}Annexes}{5}
+\contentsline {subsection}{\numberline {5.3}Cohesion}{6}
+\contentsline {subsection}{\numberline {5.4}Long Method}{6}
+\contentsline {subsection}{\numberline {5.5}Long Class}{6}
+\contentsline {subsection}{\numberline {5.6}Long Parameter List}{6}
+\contentsline {subsection}{\numberline {5.7}Thresolded Metrics Summary}{6}
+\contentsline {subsection}{\numberline {5.8}...}{6}
+\contentsline {section}{\numberline {6}Improvements}{6}
+\contentsline {section}{\numberline {7}Conclusion}{6}
+\contentsline {section}{\numberline {8}Annexes}{6}

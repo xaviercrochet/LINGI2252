@@ -125,7 +125,7 @@ browser
 	to: #three;
 	from: #two;
 \end{lstlisting}
-This duplication class is related to a test class named \textit{GLMUpdateInterdepententPanesTest}. We can extract a new class here and use it in the test class.
+here, we can extract a new class from \textit{GLMBasicExample} and use it inside \textit{GLMUpdateInterdepententPanesTest}.
 
 \item We have also 6 internal duplications. The following piece of code is present two times in the class.
 \begin{lstlisting}
@@ -142,7 +142,9 @@ This duplication class is related to a test class named \textit{GLMUpdateInterde
 			display: [model keys];  
 \end{lstlisting}
 
-We can refactor the classe by extracting the duplicated blocks as new methods, making the class more maintainable.\\ 
+We can refactor the classe by extracting the duplicated blocks as new methods, making the class more maintainable.\\
+
+Basicly, the solution is to \textbf{extract} the duplicated block as \textbf{a new method} when  an internal one occurs, and as a \textbf{new class} when it's an external. When a external duplicated block occurs between \textbf{two parent classes}, it's more appropriate to resolve it using \textbf{inheritance}. 
 \end{itemize}	
 \subsection{Cohesion} 
 \subsection{Long Method}
