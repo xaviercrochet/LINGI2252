@@ -109,8 +109,9 @@ When querying for
 \item \textit{NumberOfInternalDuplications} we get 27 classes
 \item \textit{NumberOfExternalDuplications} we get 30 classes
 \end{itemize}
-Let's take for example the class \textit{GLMBasicExample}.\\
-We have 3 external duplications, meaning that we have 3 block of code present in three other class of the framework. The duplication with \textit{GLMUpdateInterdepententPanesTest} is the following:\\
+Let's take for example the class \textit{GLMBasicExample}.
+\begin{itemize}
+\item We have 3 external duplications, meaning that we have 3 block of code present in three other class of the framework. The duplication with \textit{GLMUpdateInterdepententPanesTest} is the following:
 \begin{lstlisting}
 browser := GLMTabulator new.
 browser
@@ -124,12 +125,25 @@ browser
 	to: #three;
 	from: #two;
 \end{lstlisting}
-External duplication is more trickier to handle. For example, one of the duplication related to \textit{GLMBasicExample class is related to a test class named \textit{GLMUpdateInterdepententPanesTest}. We can extract a new class here and use it in the other class.
+This duplication class is related to a test class named \textit{GLMUpdateInterdepententPanesTest}. We can extract a new class here and use it in the test class.
 
-We have also 6 internal duplications. We can refactor the classe by extracting the duplicated blocks as new methods, making the class more maintainable.  
-
-This fragment of code is part of the \textit{updateableIndividualPresentations} method in \textit{GLMBasicExample} class and of\textit}. 
+\item We have also 6 internal duplications. The following piece of code is present two times in the class.
+\begin{lstlisting}
+|browser model|
+	model := Dictionary new.
+	model at: #some put: #(1 2 3 4).
+	model at: #even put: #(2 6 8).
+	model at: #odd put: #(3 7 9).
 	
+	browser := GLMTabulator new.
+	browser column: #one.
+	browser transmit to: #one; andShow: [ :a |
+		a tree
+			display: [model keys];  
+\end{lstlisting}
+
+We can refactor the classe by extracting the duplicated blocks as new methods, making the class more maintainable.\\ 
+\end{itemize}	
 \subsection{Cohesion} 
 \subsection{Long Method}
 \subsection{Long Class}
