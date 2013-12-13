@@ -147,9 +147,19 @@ We can refactor the classe by extracting the duplicated blocks as new methods, m
 Basicly, the solution is to \textbf{extract} the duplicated block as \textbf{a new method} when  an internal one occurs, and as a \textbf{new class} when it's an external. When a external duplicated block occurs between \textbf{two parent classes}, it's more appropriate to resolve it using \textbf{inheritance}. 
 \end{itemize}	
 \subsection{Cohesion}
-Cohesion metrics measure how well the methods of a class are related to each other. A cohesive class performs one function. A non-cohesive class performs two or more unrelated functions. The idea is to refactor the non-cohesive class into several smaller classes.
+Cohesion metrics measure how well the methods of a class are related to each other. A cohesive class performs one function. A non-cohesive class performs two or more unrelated functions. The idea is to refactor the non-cohesive class into several smaller classes. Cohesion is thus a good thing.
 
-The attribute to inspect here is \textit{tightClassCohesion}. 
+The attribute to inspect here is \textit{tightClassCohesion}. It's a ratio between number of connected methods and the maximum number of possibly connected methods. Two methods are connected if they access the same attribute. 
+We modify our query a little bit:
+\begin{lstlisting}
+(self flatCollect:[:each | each classes])  select:[:each | ((each tightClassCohesion  >= MIN) &( each tightClassCohesion < MAX))]
+\end{lstlisting}
+
+And compute the following graph, displaying the number of class aving their attribute less or equal than the value.\\
+
+We see that the class having the highest cohesion value (1.47) is GLMUpdateMorphicTest and has only 96 lines of codes. Furthemore, when querying for class having tightClassCohesion less than 0.1, we have 197 classes, GLMPresentation and his whole family (GLMListingPresentation,  GLMWizard GLMBrowser, ...) Other elephant classes such as GLMUITheme, GLMWhiteSpaceTheme. \\ 
+
+Thoses classes where also identified in the first report as elephant classes. There is work to do on this part, to increase class cohesion by refactoring them into several smaller classes.\\ 
 \subsection{Accessors} 
 \subsection{Long Method}
 \subsection{Long Class}
@@ -159,5 +169,6 @@ The attribute to inspect here is \textit{tightClassCohesion}.
 \section{Improvements}
 \section{Conclusion}
 \section{Annexes}
+%http://www.arisa.se/compendium/node118.html
 
 \end{document}
