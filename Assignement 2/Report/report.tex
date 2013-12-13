@@ -61,10 +61,10 @@ The report will be divded in two parts:
 	\item Then, we develop a set of thresolded metrics we'll use later to analyse the code.   
  \end{enumerate}
 \newpage
-\section{Code analysis}
-\chapter{Architecture}
-\section{Overview Pyramid}
-\section{Complexity}
+\section{Architecture}
+\subsection{Introduction}
+\subsection{Overview Pyramid}
+\subsection{Complexity}
 \section{Comments}
 Commenting code is important to improve \textbf{readability} and  the \textbf{reusability}. It make it easier for developpers to contiue a project or for student to analyse it.\\
 
@@ -78,8 +78,30 @@ As we can see \textbf{GLM} is the suffix coming up the more often. Other suffix 
 
 We can perform the same analysis for methods or variable.Globally there is no bad smells coming up here. There is not randomly named classes variable or methods. Anyway, naming convention is quite a controversial issue, so we are not going deeper in the analysis here. 
 \section{Metrics-based analysis}
- \subsection{Introduction}
+\subsection{Introduction}
+Before deciding when to refactor, we need first to identify where bad smells occurs inside the framework.Using \textit{Moose}'s metrics set, we start by etablishing criteria to indentify those parts.\\ 
 
+In practice, we'll use the following query in order to retrieve the classes based on our thresholded metrics:\\
+\begin{lstlisting}
+(MooseModel root allModels first) allClasses 
+	select: [:each | (each METRICNAME OPERATOR THRESHOLD)
+\end{lstlisting}
+Avec
+\begin{itemize}
+\item METRICNAME - The name of the Metric
+\item OPERATOR - The operator for the comparaison
+\item THRESHOLD - The value of the threshold
+ \end{itemize}
+
+\subsection{Code duplication}
+The metrics we have to handle are \textit{NumberOfExternalDuplications} and \textit{NumberOfInternalDuplications}.
+The first one correspond to.\\
+The second one to.
+\subsection{Long Method}
+\subsection{Long Class}
+\subsection{Long Parameter List}
+\subsection{...}
+\section{Improvements}
 \section{Conclusion}
 \section{Annexes}
 

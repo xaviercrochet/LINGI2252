@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.8.22)  13 DEC 2013 13:41
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.8.22)  13 DEC 2013 16:13
 entering extended mode
  %&-line parsing enabled.
 **report.tex
@@ -475,6 +475,9 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 58.
  [2]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 65.
+
 Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
@@ -487,25 +490,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--78
  []
 
 [3 <./name_cloud.png>]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 81.
- [4] (./report.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
+
+ []
+
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 87.
+
+Overfull \hbox (7.45618pt too wide) in paragraph at lines 97--100
+\OT1/ptm/m/n/10.95 The met-rics we have to han-dle are \OT1/ptm/m/it/10.95 Num-
+berO-fEx-ter-nalDu-pli-ca-tions \OT1/ptm/m/n/10.95 and \OT1/ptm/m/it/10.95 Num-
+berOfIn-
+ []
+
+[4] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 3563 strings out of 256216
- 43502 string characters out of 1917072
- 99338 words of memory out of 1500000
- 6790 multiletter control sequences out of 10000+200000
- 25350 words of font info for 53 fonts, out of 1200000 for 2000
+ 3827 strings out of 256216
+ 45497 string characters out of 1917072
+ 104338 words of memory out of 1500000
+ 7052 multiletter control sequences out of 10000+200000
+ 27190 words of font info for 56 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 27i,11n,43p,560b,261s stack positions out of 5000i,500n,6000p,200000b,15000s
-{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/
-texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/urw/times
-/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/texm
-f/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr
-i8a.pfb>
-Output written on report.pdf (5 pages, 118249 bytes).
+ 27i,11n,43p,560b,1072s stack positions out of 5000i,500n,6000p,200000b,15000s
+{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/t
+exmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm
+/cmsy9.pfb></usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf
+/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8
+a.pfb></usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
+Output written on report.pdf (5 pages, 126468 bytes).
 PDF statistics:
- 44 PDF objects out of 1000 (max. 8388607)
+ 48 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
