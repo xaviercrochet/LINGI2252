@@ -279,7 +279,7 @@ There are different ways to access an attribute:
 \item Directly from inside. \\ This is not good too, but this will not be a big problem if they are accessors/mutators inside the class and we have just forgotten to use them. The reason is that, for the person who maintains the code, he just needs to take care of the code inside the class.\\ However, if there isn't any accessors/mutators, it will clearly become and issue. The person maintaining the program must not only check this class, but also find out all the uses/modifications of the attribute.
 \end{itemize}
 
-We consider that, for a good class, every attribute has one \textit{getter} method (accessor) and on \textit{setter} (mutator) method. Therefore, there are \textbf{two} accessor-methods per attribute.\\
+We consider that, for a good class, every attribute has one \textit{getter} method (accessor) and one \textit{setter} (mutator) method. Therefore, there are \textbf{two} accessor-methods per attribute.\\
 
 The Glamour system has 287 classes. We fill find out among them how well attribute are accessed.\\
 
@@ -288,16 +288,21 @@ At first, we should know how many classes have attributes by using the following
 ((self flatCollect:[:each|each classes])
 	select:[:each|each numberOfAttributes>0]
 \end{lstlisting}
+
 \textbf{Glamour has 138 classes with attributes.}\\
+
 Then we query for classes respecting the following rule:\\
-$(numberOfAttributes) > 0) ^ (numberOfAccessorMethods >= (2*each numberOfAttributes))$
+$(numberOfAttributes) > 0) \land (numberOfAccessorMethods >= (2*each numberOfAttributes))$\\
+
 
 This query results in 36 classes that might correctly access their attributes. \textbf{But}, we have to be aware that they might be some attributes with 3 or more accessors-methods. As consequence, they might be some false positives results with attributes having only 1 or 0 accessor method.\\ 
 
 The solution is to query for classes having more than 3 accessor methods and to manually look into them. Luckily, there is only one class printed out:  \textit{GLMPanePort}). The maximum number of well designed classes is thus 36.\\
 
-Therefore, we can compute the proportion of good classes as follow: $\frac{Classes respecting the rule}{Classes with attributes} = \frac{36}{138} = 26.09\%$
- This percentage shows that most of the classes don't access correctly their attributes. However, not all the attributes need an accessor and a mutator, the results might be truncated.\\ 
+Therefore, we can compute the proportion of good classes as follow:\\
+ $\frac{Classes respecting the rule}{Classes with attributes} = \frac{36}{138} = 26.09\%$\\
+
+This percentage shows that most of the classes don't access correctly their attributes. However, not all the attributes need an accessor and a mutator, the results might be truncated.\\ 
 
 In order to going deeper, we try to get more information that might help us to further analyse the \textit{Glamour System}. Thus, we query for classes having one or more attributes. There are 78 classes respecting this rule.\\
 
@@ -332,7 +337,7 @@ We can compute the following chart, showing information about class using access
 There are many classes with no accessor-methods, which will may cause maintenance problems in the future. Furthemore, we see that they might be some false-positives, as they might be an average of 2 accessor method per attribute if one atribute has only one accessor and an other 3. But, as there are only 8 directly acceded attributes, we see that the developer rarely use such bad smells.  
 
 
-\subsubsection{Conclusion}
+\section{Conclusion}
 If we query for classes having low cohesion, high coupling, high line number of code and large methods, we get always. similar results. Even more, we reach one of our first report conclusion (We identified a large number of big classes.) We come up here the first design problem of the framework: \emph{Cohesion}. One must increase the cohesion of theses classes by re-factoring them into smaller ones.\\
 
 Some of the concerned classes are:\\ 
@@ -356,6 +361,4 @@ GLMWizard &  374 & 321 & 0.0029 & 1.6206\\
 GLMBrowser & 360 & 436 & 0.012 & 0.8041\\
 \hline
 \end{tabular}
-\section{Improvements}
-\section{Conclusion}
 \end{document}

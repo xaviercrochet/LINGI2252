@@ -14,6 +14,4 @@
 \contentsline {subsubsection}{\numberline {5.2.4}Large methods-classes}{9}
 \contentsline {subsubsection}{\numberline {5.2.5}Long list parameters}{10}
 \contentsline {subsubsection}{\numberline {5.2.6}Accessors}{10}
-\contentsline {subsubsection}{\numberline {5.2.7}Conclusion}{12}
-\contentsline {section}{\numberline {6}Improvements}{13}
-\contentsline {section}{\numberline {7}Conclusion}{13}
+\contentsline {section}{\numberline {6}Conclusion}{12}
