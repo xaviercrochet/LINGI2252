@@ -207,14 +207,17 @@ It measure the tightness of a class's cohesion.
 	(each fanIn  > 0)  
 	ifTrue: 
 	[
-	(each fanOut / each fanIn) > 10
+	(each fanOut / each fanIn) < THRESHOLD_VALUE
 	]
-	ifFalse:  [ 1==1 ]
+	ifFalse:  [ false ]
 	)
 ]
 \end{lstlisting}
-\item and compute the following graph with the collected data.
-\end{itemize} 
+\textbf{\textit{Note : to avoid having zero-fanIn result truncating result, we simply ingore them. Moreover, the 67 classes with fanIn equal to 0 correspond to all the test classes. That's why they aren't referenced in any classes.}}
+\item{and compute the following graph with the collected data.}
+\end{itemize}
+\includegraphics[width=\textwidth]{coupling_result}
+\textit{Note : We use a logarithmical scale to display the x axis.}
 \subsubsection{Large methods-classes}
 To pursue our elephant classe analysis, we can look into these metrics:\\
 \begin{tabular}{| c | c | c |}
