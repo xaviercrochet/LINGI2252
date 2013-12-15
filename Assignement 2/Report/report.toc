@@ -12,7 +12,7 @@
 \contentsline {subsubsection}{\numberline {5.2.2}Cohesion}{7}
 \contentsline {subsubsection}{\numberline {5.2.3}Coupling}{8}
 \contentsline {subsubsection}{\numberline {5.2.4}Large methods-classes}{9}
-\contentsline {subsubsection}{\numberline {5.2.5}Conclusion}{10}
-\contentsline {section}{\numberline {6}Improvements}{10}
-\contentsline {section}{\numberline {7}Conclusion}{10}
-\contentsline {section}{\numberline {8}Annexes}{10}
+\contentsline {subsubsection}{\numberline {5.2.5}Accessors}{10}
+\contentsline {subsubsection}{\numberline {5.2.6}Conclusion}{12}
+\contentsline {section}{\numberline {6}Improvements}{13}
+\contentsline {section}{\numberline {7}Conclusion}{13}

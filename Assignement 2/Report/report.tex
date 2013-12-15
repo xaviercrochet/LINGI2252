@@ -47,13 +47,13 @@ Sergio \textsc{Castro} \\
 \tableofcontents
 \newpage
 \section{Introduction}
-In the first report, we try to do a manual analysis of \textit{Glamour}. This first step gives us a global overview of \textit{Glamour} and helps us to understand how \textit{Moose} and his tools works. Because of the size of the system (about 270 classes), we use some tools in order to get some hints on where to begin. It wasn't exactly what was asked in the statement of the first report but now that we have all the tools in our hand, we can start looking more effectively for the needles in the haystack that \textit{Glamour} is.\\
+In the first report, we try to do a manual analysis of \textit{Glamour}. This first step gives us a global overview of \textit{Glamour} and helps us to understand how \textit{Moose} and his tools work. Because of the size of the system (about 270 classes), we use some tools in order to get some hints on where to begin. It wasn't exactly what was asked in the statement of the first report but now that we have all the tools in our hand, we can start looking more effectively for the needles in the haystack that \textit{Glamour} is.\\
 
 Moreover, we found some code duplication in the source code (but relatively few compared to the size of the framework) and the utilisation  of the \textit{Pattern Observer} in the \textit{GLMPresentation} class. We thus conclude that \textit{Glamour} was globally well-designed, despite the few code duplication.\\
 
-The report will be divided in two parts:\\
+The report will be divided into two parts:\\
 \begin{enumerate}
-	\item We start by analyse the code using criteria not identifiable by metrics to see
+	\item We start by analysing the code using criteria not identifiable by metrics to see
 		\begin{itemize}
 		\item How well the code is commented.
 		\item How good the naming convention is.
@@ -64,14 +64,14 @@ The report will be divided in two parts:\\
 
 \section{Architecture}
 \subsection{Overview Pyramid}
-With moose, we can easily have a pyramid visualisation of de system.\\
+With moose, we can easily have a pyramid visualisation of the system.\\
 \includegraphics[width=\textwidth]{pyramid}
 
 As you can see, three different colours are used in the figure.
 \begin{enumerate}
-\item The \textcolor{green}{green} part provides informations about the depth of the inheritance. \textit{ANDC} means "Average number of derived classes" and \textit{Average Hierarchy height}.  
-\item The \textcolor{yellow}{yellow} part provides informations about the complexity of the system. \textit{NOP} means number of package, \textit{NOC}, number of classes, \textit{NOM}, number of methods, \textit{LOC}, lines of code and \textit{CYCLO}, cyclomatic number.
-\item In \textcolor{magenta}{purple} part provides informations about coupling. \textit{NOM} means number of methods, \textit{CALLS}, number of invocation and \textit{FANOUT}, number of called classes.
+\item The \textcolor{green}{green} part provides information about the depth of the inheritance. \textit{ANDC} means "Average number of derived classes" and \textit{Average Hierarchy height}.  
+\item The \textcolor{yellow}{yellow} part provides information about the complexity of the system. \textit{NOP} means number of package, \textit{NOC}, number of classes, \textit{NOM}, number of methods, \textit{LOC}, lines of code and \textit{CYCLO}, cyclomatic number.
+\item In \textcolor{magenta}{purple} part provides information about coupling. \textit{NOM} means number of methods, \textit{CALLS}, number of invocation and \textit{FANOUT}, number of called classes.
 \end{enumerate}
 
 On the left top of each pyramid component, there is a small coloured dot.
@@ -84,7 +84,7 @@ On the left top of each pyramid component, there is a small coloured dot.
 From this picture, we made some observations. 
 \begin{itemize}
 \item It seems that glamour behaves quite good in term of complexity.
-\item Their is some use of hierarchy, but the average number of derived classes is quite low. T
+\item Their is some use of hierarchy, but the average number of derived classes is quite low.
 \item The coupling part is very bad. 
 \end{itemize}
 
@@ -92,9 +92,9 @@ This figure gave us some leads on where to begin our analysis.
 \subsection{Complexity}
 In the first report, we print the whole figure displaying the system complexity. We conclude they were some elephant classes with a lot of methods in the system.  
 \section{Comments}
-Commenting code is important to improve \textbf{readability} and  the \textbf{re-usability}. It make it easier for developers to continue a project or for student to analyse it.\\
+Commenting code is important to improve \textbf{readability} and  the \textbf{re-usability}. It makes it easier for developers to continue a project or for student to analyse it.\\
 
-There is so few comments in the code that we decide to not use a metric to analyse this part. In deed, there is only 768 comments! That's about 3 comments for each class.
+There are so few comments in the code that we decide to not use a metric to analyse this part. In deed, there are only 768 comments! That's about 3 comments for each class.
 \section{Naming Convention}
 
 A good naming convention is also an important point in order to improve \textbf{readability} and \textbf{re-usability} of the code. Using the \textit{Name Cloud} utility from moose, we can display the following figure, showing the most used words \textbf{for naming classes} in the framework.\\
@@ -262,12 +262,72 @@ numberOfStatements & 15 & 25\\
 numberOfMessageSends & 10 & 20\\
 \hline
 \end{tabular}\\
-
 The idea here is to look for classes having large methods doing a lot of stuff. So we look for method respecting the following rule:
 
 \begin{quote} $ numberOfLinesOfCode > 25 \\ \vee numberOfStatements > 15 \\ \vee numberOfMessageSends > 10$\\\end{quote}
 
 We get 196 classes. If we look at the complexity graph, these are the same classes we get on the above section. To be certain, we increase our threshold (See the second threshold of the table). We get 150 classes, among them, the one we identify in the first report and in the previous section. 
+\subsubsection{Accessors}
+There are different ways to access an attribute:
+\begin{itemize}
+\item Using an accessor/mutator.\\ This is the best way in the oriented-object programming. According to this principle, the attribute is made private to hide and protect it from other code. It can neither be used directly, nor e modified by other code, except by the accessor/mutator function.
+\item Directly from outside of the class. \\ This is dangerous, and could cause some maintenance problems, because we are limited to modify the code
+\item Directly from inside. \\ This is not good too, but this will not be a big problem if they are accessors/mutators inside the class and we have just forgotten to use them. The reason is that, for the person who maintains the code, he just needs to take care of the code inside the class.\\ However, if there isn't any accessors/mutators, it will clearly become and issue. The person maintaining the program must not only check this class, but also find out all the uses/modifications of the attribute.
+\end{itemize}
+
+We consider that, for a good class, every attribute has one \textit{getter} method (accessor) and on \textit{setter} (mutator) method. Therefore, there are \textbf{two} accessor-methods per attribute.\\
+
+The Glamour system has 287 classes. We fill find out among them how well attribute are accessed.\\
+
+At first, we should know how many classes have attributes by using the following query:\\
+\begin{lstlisting}
+((self flatCollect:[:each|each classes])
+	select:[:each|each numberOfAttributes>0]
+\end{lstlisting}
+\textbf{Glamour has 138 classes with attributes.}\\
+Then we query for classes respecting the following rule:\\
+$(numberOfAttributes) > 0) ^ (numberOfAccessorMethods >= (2*each numberOfAttributes))$
+
+This query results in 36 classes that might correctly access their attributes. \textbf{But}, we have to be aware that they might be some attributes with 3 or more accessors-methods. As consequence, they might be some false positives results with attributes having only 1 or 0 accessor method.\\ 
+
+The solution is to query for classes having more than 3 accessor methods and to manually look into them. Luckily, there is only one class printed out:  \textit{GLMPanePort}). The maximum number of well designed classes is thus 36.\\
+
+Therefore, we can compute the proportion of good classes as follow: $\frac{Classes respecting the rule}{Classes with attributes} = \frac{36}{138} = 26.09\%$
+ This percentage shows that most of the classes don't access correctly their attributes. However, not all the attributes need an accessor and a mutator, the results might be truncated.\\ 
+
+In order to going deeper, we try to get more information that might help us to further analyse the \textit{Glamour System}. Thus, we query for classes having one or more attributes. There are 78 classes respecting this rule.\\
+
+Therefore, we have 47 classes having attributes without accessor-methods. They could cause maintenance problems.\\
+
+Now, we are going to look for classes accessing directly their attributes. First, we use the following query to get the total number of attributes.
+\begin{lstlisting}
+((self flatCollect: [:each | each classes]) flatCollect: [:each |each attributes])
+\end{lstlisting}
+We get 364 attributes.
+
+We can get the number of directly accessed variable using the \textit{numberOfGlobalAccesses} metrics. That represents only $2.20\%$ of the total attributes of the system. That's very nice!
+
+But, using the following query\\
+\begin{lstlisting}
+((((self flatCollect: [:each | each classes])
+	select: [:each | each numberOfAttributes > 0])
+	select: [:each | each numberOfAccessorMethods > 0]))
+flatCollect: [:each | each attributes])
+select: [:each | numberOfGlobalAccesses > O ]
+\end{lstlisting}
+it appears that, among these 8 attributes, 4 of these globally acceded attributes have accessor-methods!\\
+
+We can compute the following chart, showing information about class using accessor-methods:\\
+\includegraphics[width=\textwidth]{accessor.png}
+\begin{itemize} 
+\item The \textcolor{blue}{blue} column represents classes having accessor-methods (about 66\%)
+\item The \textcolor{red}{red} one represents classes having at least one accessor-method (about 57\%)
+\item The \textcolor{green}{green} one represents the \textit{good} classes (about 26\%)
+\item The \textcolor{magenta}{purple} one represents having 2 or more accessor-methods for only one attribute. (Only one class)
+\end{itemize}
+There are many classes with no accessor-methods, which will may cause maintenance problems in the future. Furthemore, we see that they might be some false-positives, as they might be an average of 2 accessor method per attribute if one atribute has only one accessor and an other 3. But, as there are only 8 directly acceded attributes, we see that the developer rarely use such bad smells.  
+
+
 \subsubsection{Conclusion}
 If we query for classes having low cohesion, high coupling, high line number of code and large methods, we get always. similar results. Even more, we reach one of our first report conclusion (We identified a large number of big classes.) We come up here the first design problem of the framework: \emph{Cohesion}. One must increase the cohesion of theses classes by re-factoring them into smaller ones.\\
 
@@ -294,13 +354,4 @@ GLMBrowser & 360 & 436 & 0.012 & 0.8041\\
 \end{tabular}
 \section{Improvements}
 \section{Conclusion}
-\section{Annexes}
-%http://www.arisa.se/compendium/node118.html
-\begin{figure}
-\includegraphics[width=\textwidth]{arch_1}
-\includegraphics[width=\textwidth]{arch_2}
-\includegraphics[width=\textwidth]{arch_3}
-\includegraphics[width=\textwidth]{arch_4}
-\includegraphics[width=\textwidth]{arch_5}
-\end{figure}
 \end{document}
