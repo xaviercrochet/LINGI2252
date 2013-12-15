@@ -1,26 +1,22 @@
 \select@language {english}
 \contentsline {section}{\numberline {1}Introduction}{2}
 \contentsline {section}{\numberline {2}Architecture}{3}
-\contentsline {subsection}{\numberline {2.1}Introduction}{3}
-\contentsline {subsection}{\numberline {2.2}Overview Pyramid}{3}
-\contentsline {subsection}{\numberline {2.3}Complexity}{3}
-\contentsline {section}{\numberline {3}Comments}{3}
-\contentsline {section}{\numberline {4}Naming Convention}{3}
-\contentsline {section}{\numberline {5}Metrics-based analysis}{4}
-\contentsline {subsection}{\numberline {5.1}Introduction}{4}
-\contentsline {subsection}{\numberline {5.2}Elephant-identifier attributes}{4}
-\contentsline {subsubsection}{\numberline {5.2.1}Code duplication}{4}
-\contentsline {subsubsection}{\numberline {5.2.2}Cohesion}{6}
-\contentsline {subsubsection}{\numberline {5.2.3}Coupling}{7}
-\contentsline {subsubsection}{\numberline {5.2.4}Large methods-classes}{8}
-\contentsline {subsubsection}{\numberline {5.2.5}Conclusion}{9}
-\contentsline {subsection}{\numberline {5.3}Use of Object-Oriented design pattern}{9}
-\contentsline {subsubsection}{\numberline {5.3.1}Introduction}{9}
-\contentsline {subsection}{\numberline {5.4}Accessors}{9}
-\contentsline {subsection}{\numberline {5.5}Long Method}{9}
-\contentsline {subsection}{\numberline {5.6}Long Class}{9}
-\contentsline {subsection}{\numberline {5.7}Long Parameter List}{9}
-\contentsline {subsection}{\numberline {5.8}Conclusion}{9}
-\contentsline {section}{\numberline {6}Improvements}{9}
-\contentsline {section}{\numberline {7}Conclusion}{9}
-\contentsline {section}{\numberline {8}Annexes}{9}
+\contentsline {subsection}{\numberline {2.1}Overview Pyramid}{3}
+\contentsline {subsection}{\numberline {2.2}Complexity}{4}
+\contentsline {section}{\numberline {3}Comments}{4}
+\contentsline {section}{\numberline {4}Naming Convention}{4}
+\contentsline {section}{\numberline {5}Metrics-based analysis}{5}
+\contentsline {subsection}{\numberline {5.1}Introduction}{5}
+\contentsline {subsection}{\numberline {5.2}Elephant-identifier attributes}{5}
+\contentsline {subsubsection}{\numberline {5.2.1}Code duplication}{5}
+\contentsline {subsubsection}{\numberline {5.2.2}Cohesion}{7}
+\contentsline {subsubsection}{\numberline {5.2.3}Coupling}{8}
+\contentsline {subsubsection}{\numberline {5.2.4}Large methods-classes}{9}
+\contentsline {subsubsection}{\numberline {5.2.5}Conclusion}{10}
+\contentsline {subsection}{\numberline {5.3}Use of Object-Oriented design pattern}{10}
+\contentsline {subsubsection}{\numberline {5.3.1}Introduction}{10}
+\contentsline {subsection}{\numberline {5.4}Accessors}{10}
+\contentsline {subsection}{\numberline {5.5}Long Parameter List}{10}
+\contentsline {section}{\numberline {6}Improvements}{10}
+\contentsline {section}{\numberline {7}Conclusion}{10}
+\contentsline {section}{\numberline {8}Annexes}{10}

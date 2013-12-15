@@ -51,20 +51,50 @@ In the first report, we try to do a manual analysis of \textit{Glamour}. This fi
 
 Moreover, we found some code duplication in the source code (but relatively few compared to the size of the framework) and the utilisation  of the \textit{Patern Obeserver} in the GLMPresentation class. We thus conclude that Glmamour was globally well-designed, despite the few code duplication.\\
 
-The report will be divded in two parts:
+The report will be divded in two parts:\\
 \begin{enumerate}
 	\item We start by analyse the code using crieria not identifiable by metrics to see
 		\begin{itemize}
 		\item How well the code is commented.
 		\item How good the naming convetion is.
 		\end{itemize}
-	\item Then, we develop a set of thresolded metrics we'll use later to analyse the code.   
+	\item Then, we develop a set of thresolded metrics we'll use later to analyse the code in two parts;
+		\begin{itemize}
+			\item In the first one, we try to identify the metrics which causes the elephant classes.
+			\item Then, we analyse the code in a oriented-object way (Looking how the attributes and the inheritance are uses).
+		\end{itemize}   
  \end{enumerate}
 \newpage
+
 \section{Architecture}
-\subsection{Introduction}
 \subsection{Overview Pyramid}
+With moose, we can easily have a pyramid visualisation of de system.\\
+\includegraphics[width=\textwidth]{pyramid}
+
+As you can see, three differents colours are used in the figure.
+\begin{enumerate}
+\item The \textcolor{green}{green} part provides informations about the depth of the inheritance. \textit{ANDC} means "Average number of derived classes" and \textit{Average Hierarchy height}.  
+\item The \textcolor{yellow}{yellow} part provides informations about the complexity of the system. \textit{NOP} means number of package, NOC, number of classes, NOM, number of methods, LOC, lines of code and CYCLO, cyclomatic number.
+\item In \textcolor{magenta}{purple} part provides informations about coupling. NOM means number of methods, CALLS, number of invocation and FANOUT, number of called classes.
+\end{enumerate}
+
+On the left top of each pyramid component, there is a small colored dot.
+\begin{itemize}
+\item \textcolor{green}{Green} means good.
+\item \textcolor{blue}{Blue} means average.
+\item \textcolor{red}{Red} means bad.
+\end{itemize}
+
+From this picture, we made some observations. 
+\begin{itemize}
+\item It seems that glamour behaves quite good in term of complexity.
+\item Their is some use of hierarchy, but the average number of devired classes is quite low. The first part of the automated analysis section is consacred to the object-oriented use. 
+\item The coupling part is very bad. We'll talk about it in the second part of the automated analysis section. 
+\end{itemize}
+
+This figure gave us some leads on where to begin our analysis. 
 \subsection{Complexity}
+In the first report, we print the whole figure displaying the system complexity. We conclude they were some elephant classes with a lot of methods in the system.  
 \section{Comments}
 Commenting code is important to improve \textbf{readability} and  the \textbf{reusability}. It make it easier for developpers to contiue a project or for student to analyse it.\\
 
@@ -187,7 +217,7 @@ When we ask moose to display the concerned classes, we see that the concerned cl
 
 Thoses classes (GLMPresentation, GLMCompositePresentation GLMListingPresentation, GLMWizard, GLMBrowser, ...)  where also identified in the first report as elephant  classes.\\
 \subsubsection{Coupling}
-Coupling measures the interdependance of class with other classes. Tight coupling is a bad thing. It reduces flexiblity and re-usability while increase difficulty to implements test.In order to measure coupling, we use the following metrics:
+Coupling measures the interdependance of class with other classes. Tight coupling is a bad thing. It reduces flexiblity and re-usability while increasing the difficulty to implements test. In order to measure coupling, we use the following metrics:
 \begin{itemize}
 \item fanIn : The number of classes referencing our class.
 \item fanOut : The number of classes referenced by our class.
@@ -213,11 +243,16 @@ It measure the tightness of a class's cohesion.
 	)
 ]
 \end{lstlisting}
-\textbf{\textit{Note : to avoid having zero-fanIn result truncating result, we simply ingore them. Moreover, the 67 classes with fanIn equal to 0 correspond to all the test classes. That's why they aren't referenced in any classes.}}
+Some classes have a fanIn attribute whose value is zero. To overcome this issue, we decide to ignore thoses classes. In deed, after querying for them, we found out that all those classes were test ones. That explains why there arn't called by any other classes. 
+
 \item{and compute the following graph with the collected data.}
 \end{itemize}
+
+ 
 \includegraphics[width=\textwidth]{coupling_result}
-\textit{Note : We use a logarithmical scale to display the x axis.}
+\textit{Note : We use a logarithmical scale to display the x axis.}\\
+
+Immediatly, it appers thaht, if we invert the x-axis, the curve has the same shape as the cohesion one (See the above section). Once again, all the big classes have high coupling numbers.
 \subsubsection{Large methods-classes}
 To pursue our elephant classe analysis, we can look into these metrics:\\
 \begin{tabular}{| c | c | c |}
@@ -250,9 +285,9 @@ GLMBasicExample & 1370 & 1600 & 0.0 & 3.9565\\
 \hline
 GLMPresentation & 659 & 502 & 0.076 & 2.6093\\
 \hline
-GLMWhiteSpaceTheme & 778 & 524 & 0.0 & \\
+GLMWhiteSpaceTheme & 778 & 524 & 0.0 & 4.25 \\
 \hline
-GLMUITheme & 797 & 552 & 0.0 & 4.7272\
+GLMUITheme & 797 & 552 & 0.0 & 4.7272\\
 \hline
 GLMCompositePresentation & 255 & 287 & 0.0051 & 0.4659\\
 \hline 
@@ -263,11 +298,8 @@ GLMBrowser & 360 & 436 & 0.012 & 0.8041\\
 \end{tabular}
 \subsection{Use of Object-Oriented design pattern}
 \subsubsection{Introduction} 
-\subsection{Accessors} 
-\subsection{Long Method}
-\subsection{Long Class}
+\subsection{Accessors}
 \subsection{Long Parameter List}
-\subsection{Conclusion}
 \section{Improvements}
 \section{Conclusion}
 \section{Annexes}
