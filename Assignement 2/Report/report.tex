@@ -193,10 +193,28 @@ Coupling measures the interdependance of class with other classes. Tight couplin
 \item fanOut : The number of classes referenced by our class.
 \end{itemize} 
 
-We can compute the following metric:
+We 
+\begin{itemize}
+
+\item compute the following metric:
 $tightClassCoupling = \frac{fanOut}{fanIn}$
 
-It measure the tightness of a class's cohesion. 
+It measure the tightness of a class's cohesion.
+\item use the following query
+\begin{lstlisting}
+(self flatCollect:[:each | each classes])  select:[:each | 
+	(
+	(each fanIn  > 0)  
+	ifTrue: 
+	[
+	(each fanOut / each fanIn) > 10
+	]
+	ifFalse:  [ 1==1 ]
+	)
+]
+\end{lstlisting}
+\item and compute the following graph with the collected data.
+\end{itemize} 
 \subsubsection{Large methods-classes}
 To pursue our elephant classe analysis, we can look into these metrics:\\
 \begin{tabular}{| c | c | c |}
