@@ -99,9 +99,16 @@ Avec
 \item THRESHOLD - The value of the threshold
  \end{itemize}
 
-When we wrote the first report, it appears clearly that they was some big classes in the code. We'll try to identify, using metrics, what goes wrong inside them. Cohesion, code duplication are our first clues to explain the issue here, that's why we start using thoses attributes to begin our analyse.\\ 
+When we wrote the first report, it appears clearly that they was some big classes in the code. We'll start by using \textit{Elephant-identifiers} attributes such as:
+\begin{itemize}
+\item Cohesion
+\item Code Duplication
+\item Larg Method and Classes
+\end{itemize}
 
-\subsection{Code duplication}
+to try to explain what goes wrong inside these classes (and propose solutions).  
+\subsection{Elephant-identifier attributes}
+\subsubsection{Code duplication}
 Having the same code structure in more than one place in the system is quite nasty. The programm will be better if we find a way to reunite them.The attributes we have to handle are \textit{NumberOfExternalDuplications} and \textit{NumberOfInternalDuplications}.\\
 
 \textbf{Threshold} - \textit{SmallDude}, the tool used by moose to detect duplicated code have a threshold of 3 lines. We decide here to set the threshold of the two attributes to 0, and to analyse one at the time the results.\\
@@ -148,7 +155,7 @@ We can refactor the classe by extracting the duplicated blocks as new methods, m
 
 Basicly, the solution is to \textbf{extract} the duplicated block as \textbf{a new method} when  an internal one occurs, and as a \textbf{new class} when it's an external. When a external duplicated block occurs between \textbf{two parent classes}, it's more appropriate to resolve it using \textbf{inheritance}. 
 \end{itemize}	
-\subsection{Cohesion}
+\subsubsection{Cohesion}
 Cohesion metrics measure how well the methods of a class are related to each other. A cohesive class performs one function. A non-cohesive class performs two or more unrelated functions. The idea is to refactor the non-cohesive class into several smaller classes. Cohesion is thus a good thing.
 
 The attribute to inspect here is \textit{tightClassCohesion}. It's a ratio between number of connected methods and the maximum number of possibly connected methods. Two methods are connected if they access the same attribute. 
@@ -182,7 +189,7 @@ Thoses classes (GLMPresentation, GLMListingPresentaion, GLMWizard, GLMBrowser, .
 
 If we query for classes having low cohesion and high line number of code, we get similar results. We reach here one of our first report conclusion. They are a lot of big classes in the framework, there is work to do on this part. One must increase those classes's cohesion by refactoring them into smaller classes.\\
  
- 
+\subsubsection{Large methods-classes} 
 \subsection{Accessors} 
 \subsection{Long Method}
 \subsection{Long Class}
