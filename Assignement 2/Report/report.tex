@@ -47,18 +47,19 @@ Sergio \textsc{Castro} \\
 \tableofcontents
 \newpage
 \section{Introduction}
-In the first report, we try to do a manual analysis of \textit{Glamour}. This first step gives us a global overview of \textit{Glamour} and helps us to understand how \textit{Moose} and his tools works. Because of the size of the system (about 270 classes), we use some tools in order to get some hints on where to begin. It wasn't exactly what was asked in the statement of the first report but now that we have all the tools in our hand, we can start looking more effectively for the needles in the haystack that Glamour is.\\
+In the first report, we try to do a manual analysis of \textit{Glamour}. This first step gives us a global overview of \textit{Glamour} and helps us to understand how \textit{Moose} and his tools works. Because of the size of the system (about 270 classes), we use some tools in order to get some hints on where to begin. It wasn't exactly what was asked in the statement of the first report but now that we have all the tools in our hand, we can start looking more effectively for the needles in the haystack that \textit{Glamour} is.\\
 
-Moreover, we found some code duplication in the source code (but relatively few compared to the size of the framework) and the utilisation  of the \textit{Patern Obeserver} in the GLMPresentation class. We thus conclude that Glmamour was globally well-designed, despite the few code duplication.\\
+Moreover, we found some code duplication in the source code (but relatively few compared to the size of the framework) and the utilisation  of the \textit{Pattern Observer} in the \textit{GLMPresentation} class. We thus conclude that \textit{Glamour} was globally well-designed, despite the few code duplication.\\
 
-The report will be divded in two parts:\\
+The report will be divided in two parts:\\
 \begin{enumerate}
-	\item We start by analyse the code using crieria not identifiable by metrics to see
+	\item We start by analyse the code using criteria not identifiable by metrics to see
 		\begin{itemize}
 		\item How well the code is commented.
-		\item How good the naming convetion is.
+		\item How good the naming convention is.
 		\end{itemize}
-	\item Then, we develop a set of thresolded metrics we'll use later to analyse the code to identify the attributes causing the elephant classes.
+	\item Then, we develop a set of metrics we'll use later to analyse the code to identify the attributes causing the elephant classes.
+\end{enumerate}
 \newpage
 
 \section{Architecture}
@@ -66,14 +67,14 @@ The report will be divded in two parts:\\
 With moose, we can easily have a pyramid visualisation of de system.\\
 \includegraphics[width=\textwidth]{pyramid}
 
-As you can see, three differents colours are used in the figure.
+As you can see, three different colours are used in the figure.
 \begin{enumerate}
 \item The \textcolor{green}{green} part provides informations about the depth of the inheritance. \textit{ANDC} means "Average number of derived classes" and \textit{Average Hierarchy height}.  
-\item The \textcolor{yellow}{yellow} part provides informations about the complexity of the system. \textit{NOP} means number of package, NOC, number of classes, NOM, number of methods, LOC, lines of code and CYCLO, cyclomatic number.
-\item In \textcolor{magenta}{purple} part provides informations about coupling. NOM means number of methods, CALLS, number of invocation and FANOUT, number of called classes.
+\item The \textcolor{yellow}{yellow} part provides informations about the complexity of the system. \textit{NOP} means number of package, \textit{NOC}, number of classes, \textit{NOM}, number of methods, \textit{LOC}, lines of code and \textit{CYCLO}, cyclomatic number.
+\item In \textcolor{magenta}{purple} part provides informations about coupling. \textit{NOM} means number of methods, \textit{CALLS}, number of invocation and \textit{FANOUT}, number of called classes.
 \end{enumerate}
 
-On the left top of each pyramid component, there is a small colored dot.
+On the left top of each pyramid component, there is a small coloured dot.
 \begin{itemize}
 \item \textcolor{green}{Green} means good.
 \item \textcolor{blue}{Blue} means average.
@@ -83,30 +84,30 @@ On the left top of each pyramid component, there is a small colored dot.
 From this picture, we made some observations. 
 \begin{itemize}
 \item It seems that glamour behaves quite good in term of complexity.
-\item Their is some use of hierarchy, but the average number of devired classes is quite low. The first part of the automated analysis section is consacred to the object-oriented use. 
-\item The coupling part is very bad. We'll talk about it in the second part of the automated analysis section. 
+\item Their is some use of hierarchy, but the average number of derived classes is quite low. T
+\item The coupling part is very bad. 
 \end{itemize}
 
-This figure gave us some leads on where to begin our analysis. 
+This figure gave us some leads on where to begin our analysis.  
 \subsection{Complexity}
 In the first report, we print the whole figure displaying the system complexity. We conclude they were some elephant classes with a lot of methods in the system.  
 \section{Comments}
-Commenting code is important to improve \textbf{readability} and  the \textbf{reusability}. It make it easier for developpers to contiue a project or for student to analyse it.\\
+Commenting code is important to improve \textbf{readability} and  the \textbf{re-usability}. It make it easier for developers to continue a project or for student to analyse it.\\
 
 There is so few comments in the code that we decide to not use a metric to analyse this part. In deed, there is only 768 comments! That's about 3 comments for each class.
 \section{Naming Convention}
 
-A good naming convention is also an important point in order to imrpove \textbf{readability} and \textbf{reusability} of the code. Using the \textit{Name Cloud} utility from moose, we can display the following figure, showing the most used words \textbf{for naming classes} in the framework.\\
+A good naming convention is also an important point in order to improve \textbf{readability} and \textbf{re-usability} of the code. Using the \textit{Name Cloud} utility from moose, we can display the following figure, showing the most used words \textbf{for naming classes} in the framework.\\
 \includegraphics[width=\textwidth]{name_cloud}
 \\
-As we can see \textbf{GLM} is the suffix coming up the more often. Other suffix such as \textbf{test} \textbf{render} or \textbf{morphic} arise too. It seems that classes are named quite correcly in order to provide meta-information about their use.\\
+As we can see \textbf{GLM} is the suffix coming up the more often. Other suffix such as \textbf{test} \textbf{render} or \textbf{morphic} arise too. It seems that classes are named quite correctly in order to provide meta-information about their use.\\
 
 We can perform the same analysis for methods or variable.Globally there is no bad smells coming up here. There is not randomly named classes variable or methods. Anyway, naming convention is quite a controversial issue, so we are not going deeper in the analysis here. 
 \section{Metrics-based analysis}
 \subsection{Introduction}
-Before deciding when to refactor, we need first to identify where bad smells occurs inside the framework. Using \textit{Moose}'s metrics set, we start by etablishing criteria to indentify those parts.\\ 
+Before deciding when to re-factor, we need first to identify where bad smells occurs inside the framework. Using \textit{Moose}'s metrics set, we start by establishing criteria to identify those parts.\\ 
 
-In practice, we'll use the following query in order to retrieve the classes based on our thresholded metrics:\\
+In practice, we'll use the following query in order to retrieve the classes based on our pair of metrics-threshold:\\
 
 \begin{lstlisting}
 ((self flatCollect:[:each | each classes]) flatCollect:[:each | each methods]) select:[:each | (each ATTRIBUTE OPERATOR THRESHOLD)] 
@@ -120,7 +121,7 @@ If we want only to look into classes, we can do:\\
 Avec
 \begin{itemize}
 \item ATTRIBUTE - The name of the attribute
-\item OPERATOR - The operator for the comparaison
+\item OPERATOR - The operator for the comparison
 \item THRESHOLD - The value of the threshold
  \end{itemize}
 
@@ -128,13 +129,13 @@ When we wrote the first report, it appears clearly that they was some big classe
 \begin{itemize}
 \item Cohesion
 \item Code Duplication
-\item Larg Method and Classes
+\item Large Method and Classes
 \end{itemize}
 
 to try to explain what goes wrong inside these classes (and propose solutions).  
 \subsection{Elephant-identifier attributes}
 \subsubsection{Code duplication}
-Having the same code structure in more than one place in the system is quite nasty. The programm will be better if we find a way to reunite them.The attributes we have to handle are \textit{NumberOfExternalDuplications} and \textit{NumberOfInternalDuplications}.\\
+Having the same code structure in more than one place in the system is quite nasty. The program will be better if we find a way to reunite them.The attributes we have to handle are \textit{NumberOfExternalDuplications} and \textit{NumberOfInternalDuplications}.\\
 
 \textbf{Threshold} - \textit{SmallDude}, the tool used by moose to detect duplicated code have a threshold of 3 lines. We decide here to set the threshold of the two attributes to 0, and to analyse one at the time the results.\\
 
@@ -176,12 +177,12 @@ here, we can extract a new class from \textit{GLMBasicExample} and use it inside
 			display: [model keys];  
 \end{lstlisting}
 
-We can refactor the classe by extracting the duplicated blocks as new methods, making the class more maintainable.\\
+We can re-factor the classes by extracting the duplicated blocks as new methods, making the class more maintainable.\\
 
 Basicly, the solution is to \textbf{extract} the duplicated block as \textbf{a new method} when  an internal one occurs, and as a \textbf{new class} when it's an external. When a external duplicated block occurs between \textbf{two parent classes}, it's more appropriate to resolve it using \textbf{inheritance}. 
 \end{itemize}	
 \subsubsection{Cohesion}
-Cohesion metrics measure how well the methods of a class are related to each other. A cohesive class performs one function. A non-cohesive class performs two or more unrelated functions. The idea is to refactor the non-cohesive class into several smaller classes. Cohesion is thus a good thing.
+Cohesion metrics measure how well the methods of a class are related to each other. A cohesive class performs one function. A non-cohesive class performs two or more unrelated functions. The idea is to re-factor the non-cohesive class into several smaller classes. Cohesion is thus a good thing.
 
 The attribute to inspect here is \textit{tightClassCohesion}. It's a ratio between number of connected methods and the maximum number of possibly connected methods. Two methods are connected if they access the same attribute. 
 We modify our query a little bit:
@@ -193,7 +194,7 @@ And compute the following graph, displaying the number the repartition of all th
 \includegraphics[width=\textwidth]{cohesion_result}
 
 \begin{itemize}
-\item We see thaht the class having the highest cohesion value (1.47) is GLMUpdateMorphicTest and has only \textbf{96 lines of codes}.\\
+\item We see thaht the class having the highest cohesion value (1.47) is \textit{GLMUpdateMorphicTest} and has only \textbf{96 lines of codes}.\\
 
 \item About ~200 classes have less than O.1 cohesion. 
 \end{itemize}
@@ -210,22 +211,22 @@ When we ask moose to display the concerned classes, we see that the concerned cl
 \end{minipage} 
 
 
-Thoses classes (GLMPresentation, GLMCompositePresentation GLMListingPresentation, GLMWizard, GLMBrowser, ...)  where also identified in the first report as elephant  classes.\\
+Theses classes (\textit{GLMPresentation}, \textit{GLMCompositePresentation} \textit{GLMListingPresentation}, \textit{GLMWizard}, \textit{GLMBrowser}, ...)  where also identified in the first report as elephant  classes.\\
 \subsubsection{Coupling}
-Coupling measures the interdependance of class with other classes. Tight coupling is a bad thing. It reduces flexiblity and re-usability while increasing the difficulty to implements test. In order to measure coupling, we use the following metrics:
+Coupling measures the interdependence of class with other classes. Tight coupling is a bad thing. It reduces flexibility and re-usability while increasing the difficulty to implements test. In order to measure coupling, we use the following metrics:
 \begin{itemize}
-\item fanIn : The number of classes referencing our class.
-\item fanOut : The number of classes referenced by our class.
+\item \textit{fanIn} : The number of classes referencing our class.
+\item \textit{fanOut} : The number of classes referenced by our class.
 \end{itemize} 
 
 We 
 \begin{itemize}
 
-\item compute the following metric:
+\item Compute the following metric:
 $tightClassCoupling = \frac{fanOut}{fanIn}$
 
 It measure the tightness of a class's cohesion.
-\item use the following query
+\item Use the following query
 \begin{lstlisting}
 (self flatCollect:[:each | each classes])  select:[:each | 
 	(
@@ -238,18 +239,18 @@ It measure the tightness of a class's cohesion.
 	)
 ]
 \end{lstlisting}
-Some classes have a fanIn attribute whose value is zero. To overcome this issue, we decide to ignore thoses classes. In deed, after querying for them, we found out that all those classes were test ones. That explains why there arn't called by any other classes. 
+Some classes have a \textit{fanIn} attribute whose value is zero. To overcome this issue, we decide to ignore theses classes. In deed, after querying for them, we found out that all those classes were test ones. That explains why there aren’t called by any other classes. 
 
-\item{and compute the following graph with the collected data.}
+\item{Compute the following graph with the collected data.}
 \end{itemize}
 
  
 \includegraphics[width=\textwidth]{coupling_result}
-\textit{Note : We use a logarithmical scale to display the x axis.}\\
+\textit{Note : We use a logarithmic scale to display the x axis.}\\
 
-Immediatly, it appers thaht, if we invert the x-axis, the curve has the same shape as the cohesion one (See the above section). Once again, all the big classes have high coupling numbers.
+Immediately, it appears that, if we invert the x-axis, the curve has the same shape as the cohesion one (See the above section). Once again, all the big classes have high coupling numbers.
 \subsubsection{Large methods-classes}
-To pursue our elephant classe analysis, we can look into these metrics:\\
+To pursue our elephant classes analysis, we can look into these metrics:\\
 \begin{tabular}{| c | c | c |}
 \hline
 Metric & Threshold 1 & Threshold 2\\
@@ -266,15 +267,15 @@ The idea here is to look for classes having large methods doing a lot of stuff. 
 
 \begin{quote} $ numberOfLinesOfCode > 25 \\ \vee numberOfStatements > 15 \\ \vee numberOfMessageSends > 10$\\\end{quote}
 
-We get 196 classes. If we look at the complexity graph, these are the same classes we get on the above section. To be certain, we increase our threshod (See the second threshold of the table). We get 150 classes, among them, the one we indentify in the first report and in the previous section. 
+We get 196 classes. If we look at the complexity graph, these are the same classes we get on the above section. To be certain, we increase our threshold (See the second threshold of the table). We get 150 classes, among them, the one we identify in the first report and in the previous section. 
 \subsubsection{Conclusion}
-If we query for classes having low cohesion, high coupling, high line number of code and large methods, we get always. similar results. Even more, we reach one of our first report conclusion (We identified a large number of big classes.) We come up here the first design problem of the framework: \emph{Cohesion}. One must increase those classes's cohesion by refactoring them into smaller classes.\\
+If we query for classes having low cohesion, high coupling, high line number of code and large methods, we get always. similar results. Even more, we reach one of our first report conclusion (We identified a large number of big classes.) We come up here the first design problem of the framework: \emph{Cohesion}. One must increase the cohesion of theses classes by re-factoring them into smaller ones.\\
 
 Some of the concerned classes are:\\ 
 
 \begin{tabular}{| c | c | c | c | c |}
 \hline 
-Class Name & Lines of code & Messages sent & Cohesion & Coupling\\
+\textbf{Class Name} &\textbf{ Lines of code} & \textbf{Messages sent} & \textbf{Cohesion} & \textbf{Coupling}\\
 \hline
 GLMBasicExample & 1370 & 1600 & 0.0 & 3.9565\\
 \hline
