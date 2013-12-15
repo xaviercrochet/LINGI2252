@@ -99,6 +99,8 @@ Avec
 \item THRESHOLD - The value of the threshold
  \end{itemize}
 
+When we wrote the first report, it appears clearly that they was some big classes in the code. We'll try to identify, using metrics, what goes wrong inside them. Cohesion, code duplication are our first clues to explain the issue here, that's why we start using thoses attributes to begin our analyse.\\ 
+
 \subsection{Code duplication}
 Having the same code structure in more than one place in the system is quite nasty. The programm will be better if we find a way to reunite them.The attributes we have to handle are \textit{NumberOfExternalDuplications} and \textit{NumberOfInternalDuplications}.\\
 
