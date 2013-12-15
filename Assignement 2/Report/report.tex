@@ -267,7 +267,7 @@ The idea here is to look for classes having large methods doing a lot of stuff. 
 \begin{quote} $ numberOfLinesOfCode > 25 \\ \vee numberOfStatements > 15 \\ \vee numberOfMessageSends > 10$\\\end{quote}
 
 We get 196 classes. If we look at the complexity graph, these are the same classes we get on the above section. To be certain, we increase our threshold (See the second threshold of the table). We get 150 classes, among them, the one we identify in the first report and in the previous section.
-\subsubsection{Large list parameters}
+\subsubsection{Long list parameters}
 Overloading method declaration with a lot of parameters quickly turns the code hard to understand, making it inconsitend and difficult to use. In deed, a good practice is to get information through object request, rather than using parameters.\\
 
 Using the \textit{numberOfparameters} attribute,  we see that there are only 20 classes with more than 5 parameters here. But among the corresponding methods, half of them belong to \textit{GLMPresentation} class (our evil class).
