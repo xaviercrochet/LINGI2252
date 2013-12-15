@@ -109,7 +109,7 @@ As we can see \textbf{GLM} is the suffix coming up the more often. Other suffix 
 We can perform the same analysis for methods or variable.Globally there is no bad smells coming up here. There is not randomly named classes variable or methods. Anyway, naming convention is quite a controversial issue, so we are not going deeper in the analysis here. 
 \section{Metrics-based analysis}
 \subsection{Introduction}
-Before deciding when to refactor, we need first to identify where bad smells occurs inside the framework.Using \textit{Moose}'s metrics set, we start by etablishing criteria to indentify those parts.\\ 
+Before deciding when to refactor, we need first to identify where bad smells occurs inside the framework. Using \textit{Moose}'s metrics set, we start by etablishing criteria to indentify those parts.\\ 
 
 In practice, we'll use the following query in order to retrieve the classes based on our thresholded metrics:\\
 
@@ -297,7 +297,8 @@ GLMBrowser & 360 & 436 & 0.012 & 0.8041\\
 \hline
 \end{tabular}
 \subsection{Use of Object-Oriented design pattern}
-\subsubsection{Introduction} 
+\subsubsection{Introduction}
+The whole point of object oriented programming is to design softwares that are easy to modify and extend. In order to achieve this, we have to find bad smells and apply object oriented pattern to eliminate these issues. We don't have the place here to look over everything. Insted, we'll focus our analysis on two important matters. We start by cheking how well accessor are used in the system. Then, how the concept of object is use to avoir long parameter list. 
 \subsection{Accessors}
 \subsection{Long Parameter List}
 \section{Improvements}
