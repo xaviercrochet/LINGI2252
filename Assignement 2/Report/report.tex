@@ -155,11 +155,32 @@ We modify our query a little bit:
 (self flatCollect:[:each | each classes])  select:[:each | ((each tightClassCohesion  >= MIN) &( each tightClassCohesion < MAX))]
 \end{lstlisting}
 
-And compute the following graph, displaying the number of class aving their attribute less or equal than the value.\\
+And compute the following graph, displaying the number the repartition of all the classes in term of their cohesion value.\\
+\includegraphics[width=\textwidth]{cohesion_result}
 
-We see that the class having the highest cohesion value (1.47) is GLMUpdateMorphicTest and has only 96 lines of codes. Furthemore, when querying for class having tightClassCohesion less than 0.1, we have 197 classes, GLMPresentation and his whole family (GLMListingPresentation,  GLMWizard GLMBrowser, ...) Other elephant classes such as GLMUITheme, GLMWhiteSpaceTheme. \\ 
+\begin{itemize}
+\item We see thaht the class having the highest cohesion value (1.47) is GLMUpdateMorphicTest and has only \textbf{96 lines of codes}.\\
 
-Thoses classes where also identified in the first report as elephant classes. There is work to do on this part, to increase class cohesion by refactoring them into several smaller classes.\\ 
+\item About ~200 classes have less than O.1 cohesion. 
+\end{itemize}
+
+\begin{minipage}[t]{0.4\textwidth}
+When we ask moose to display the concerned classes, we see that the concerned classes are the elephant one of the framework. Furthemore, the whole \textit{GLMPresensation} Family appears on the picture (as you can see in the picture to the right):
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.6\textwidth}
+    \centering
+     \vspace{-1.5ex}
+\includegraphics[width=0.6\textwidth]{GLMPresentation_family}
+\end{minipage} 
+
+
+Thoses classes (GLMPresentation, GLMListingPresentaion, GLMWizard, GLMBrowser, ...)  where also identified in the first report as elephant  classes.\\
+
+If we query for classes having low cohesion and high line number of code, we get similar results. We reach here one of our first report conclusion. They are a lot of big classes in the framework, there is work to do on this part. One must increase those classes's cohesion by refactoring them into smaller classes.\\
+ 
+ 
 \subsection{Accessors} 
 \subsection{Long Method}
 \subsection{Long Class}
