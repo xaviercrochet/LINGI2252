@@ -185,17 +185,60 @@ When we ask moose to display the concerned classes, we see that the concerned cl
 \end{minipage} 
 
 
-Thoses classes (GLMPresentation, GLMListingPresentaion, GLMWizard, GLMBrowser, ...)  where also identified in the first report as elephant  classes.\\
+Thoses classes (GLMPresentation, GLMCompositePresentation GLMListingPresentation, GLMWizard, GLMBrowser, ...)  where also identified in the first report as elephant  classes.\\
 
-If we query for classes having low cohesion and high line number of code, we get similar results. We reach here one of our first report conclusion. They are a lot of big classes in the framework, there is work to do on this part. One must increase those classes's cohesion by refactoring them into smaller classes.\\
+
  
-\subsubsection{Large methods-classes} 
+\subsubsection{Large methods-classes}
+To pursue our elephant classe analysis, we can look into these metrics:\\
+\begin{tabular}{| c | c | c |}
+\hline
+Metric & Threshold 1 & Threshold 2\\
+\hline
+numberOfLinesOfCode & 25 & 30\\
+\hline
+numberOfStatements & 15 & 25\\
+\hline
+numberOfMessageSends & 10 & 20\\
+\hline
+\end{tabular}\\
+
+The idea here is to look for classes having large methods doing a lot of stuff. So we look for method respecting the following rule:
+
+\begin{quote} $ numberOfLinesOfCode > 25 \\ \vee numberOfStatements > 15 \\ \vee numberOfMessageSends > 10$\\\end{quote}
+
+We get 196 classes. If we look at the complexity graph, these are the same classes we get on the above section. To be certain, we increase our threshod (See the second threshold of the table). We get 150 classes, among them, the one we indentify in the first report and in the previous section. 
+\subsubsection{Conclusion}
+If we query for classes having low cohesion, high line number of code and large methods, we get always. similar results. Even more, we reach one of our first report conclusion (We identified a large number of big classes.) We come up here the first design problem of the framework: \emph{Cohesion}. One must increase those classes's cohesion by refactoring them into smaller classes.\\
+
+Some of the concerned classes are:\\ 
+
+\begin{tabular}{| c | c | c | c |}
+\hline 
+Class Name & Lines of code & Messages sent & Cohesion\\
+\hline
+GLMBasicExample & 1370 & 1600 & 0.0\\
+\hline
+GLMPresentation & 659 & 502 & 0.076\\
+\hline
+GLMWhiteSpaceTheme & 778 & 524 & 0.0\\
+\hline
+GLMUITheme & 797 & 552 & 0.0\\
+\hline
+GLMCompositePresentation & 255 & 287 & 0.0051\\
+\hline 
+GLMWizard &  374 & 321 & 0.0029\\
+\hline
+GLMBrowser & 360 & 436 & 0.012\\
+\hline
+\end{tabular}
+\subsection{Use of Object-Oriented design pattern}
+\subsubsection{Introduction} 
 \subsection{Accessors} 
 \subsection{Long Method}
 \subsection{Long Class}
 \subsection{Long Parameter List}
-\subsection{Thresolded Metrics Summary}
-\subsection{...}
+\subsection{Conclusion}
 \section{Improvements}
 \section{Conclusion}
 \section{Annexes}
