@@ -186,9 +186,17 @@ When we ask moose to display the concerned classes, we see that the concerned cl
 
 
 Thoses classes (GLMPresentation, GLMCompositePresentation GLMListingPresentation, GLMWizard, GLMBrowser, ...)  where also identified in the first report as elephant  classes.\\
+\subsubsection{Coupling}
+Coupling measures the interdependance of class with other classes. Tight coupling is a bad thing. It reduces flexiblity and re-usability while increase difficulty to implements test.In order to measure coupling, we use the following metrics:
+\begin{itemize}
+\item fanIn : The number of classes referencing our class.
+\item fanOut : The number of classes referenced by our class.
+\end{itemize} 
 
+We can compute the following metric:
+$tightClassCoupling = \frac{fanOut}{fanIn}$
 
- 
+It measure the tightness of a class's cohesion. 
 \subsubsection{Large methods-classes}
 To pursue our elephant classe analysis, we can look into these metrics:\\
 \begin{tabular}{| c | c | c |}
