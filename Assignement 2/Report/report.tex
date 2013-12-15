@@ -58,12 +58,7 @@ The report will be divded in two parts:\\
 		\item How well the code is commented.
 		\item How good the naming convetion is.
 		\end{itemize}
-	\item Then, we develop a set of thresolded metrics we'll use later to analyse the code in two parts;
-		\begin{itemize}
-			\item In the first one, we try to identify the metrics which causes the elephant classes.
-			\item Then, we analyse the code in a oriented-object way (Looking how the attributes and the inheritance are uses).
-		\end{itemize}   
- \end{enumerate}
+	\item Then, we develop a set of thresolded metrics we'll use later to analyse the code to identify the attributes causing the elephant classes.
 \newpage
 
 \section{Architecture}
@@ -296,11 +291,6 @@ GLMWizard &  374 & 321 & 0.0029 & 1.6206\\
 GLMBrowser & 360 & 436 & 0.012 & 0.8041\\
 \hline
 \end{tabular}
-\subsection{Use of Object-Oriented design pattern}
-\subsubsection{Introduction}
-The whole point of object oriented programming is to design softwares that are easy to modify and extend. In order to achieve this, we have to find bad smells and apply object oriented pattern to eliminate these issues. We don't have the place here to look over everything. Insted, we'll focus our analysis on two important matters. We start by cheking how well accessor are used in the system. Then, how the concept of object is use to avoir long parameter list. 
-\subsection{Accessors}
-\subsection{Long Parameter List}
 \section{Improvements}
 \section{Conclusion}
 \section{Annexes}
